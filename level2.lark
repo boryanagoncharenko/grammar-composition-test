@@ -1,0 +1,5 @@
+var: /[a-zA-Z]+[a-zA-Z0-9]*/ -> var
+
+%import .level1 (command, test, text, ask, _ASK, _IS, _SPACE)
+%override test: "test2" text -> test
+%override ask: var _SPACE _IS _SPACE _ASK _SPACE text -> ask

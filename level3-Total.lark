@@ -1,0 +1,10 @@
+_EOL: "\r"?"\n"
+
+start: program
+program: _EOL* (command _EOL+)* command?
+command: level3__command | level2__command | level1__command | error__command
+
+%import .level1.command -> level1__command
+%import .level2.command -> level2__command
+%import .level3.command -> level3__command
+%import .error.command -> error__command

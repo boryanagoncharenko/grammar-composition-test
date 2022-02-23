@@ -1,0 +1,10 @@
+_SPACE: " "+
+_EOL: "\r"?"\n"
+
+command: error_invalid_space | error_invalid
+
+text: /([^\n]+)/ -> text //anything can be parsed except for a newline
+textwithoutspaces: /([^\n ]+)/ -> text //anything can be parsed except for a new line and spaces
+
+error_invalid_space: _SPACE text?
+error_invalid: textwithoutspaces text?

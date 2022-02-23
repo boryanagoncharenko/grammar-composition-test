@@ -1,0 +1,2 @@
+%import .level2 (command, test, text)
+%override test: "test3" text -> test

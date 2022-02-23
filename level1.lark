@@ -1,0 +1,21 @@
+_SPACE: " "+
+_PRINT: "print"
+_ASK: "ask"
+_ECHO: "echo"
+_TURN: "turn"
+_FORWARD: "forward"
+_IS: "is"
+
+command: test | print | ask | echo | turtle
+
+test: "test1" text -> test
+print: _PRINT (_SPACE text)?
+ask: _ASK (_SPACE text)?
+echo: _ECHO (_SPACE text)?
+turtle: _FORWARD (_SPACE (text | NUMBER))? -> forward | _TURN (_SPACE text)? -> turn
+
+text: /([^\n]+)/ -> text //anything can be parsed except for a newline
+textwithoutspaces: /([^\n ]+)/ -> text //anything can be parsed except for a new line and spaces
+
+%import common.SIGNED_INT -> INT
+%import common.NUMBER -> NUMBER
